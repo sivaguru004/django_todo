@@ -21,15 +21,8 @@ It allows users to register, log in, create, update, delete, reorder, and mark t
 
 - **Back-end**: Django (Python)
 - **Database**: SQLite (default)
-- **Front-end**: HTML, CSS, JavaScript (Sortable.js)
-- **Deployment**: Render (or any platform)
+- **Front-end**: HTML, CSS, JavaScript
+- **Deployment**: Render
 
----
 
-### ⚙️ How to Run Locally
-
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/sivaguru004/django_todo.git
-   cd django_todo
 
