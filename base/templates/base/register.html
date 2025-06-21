@@ -1,0 +1,55 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<style>
+    .form-error {
+        color: red;
+        font-size: 13px;
+        margin: 4px 0 8px 0;
+        font-weight: 500;
+    }
+</style>
+
+<div class="header-bar">
+    <h1>Register</h1>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- 🔴 Show form-wide errors like "user already exists" -->
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="form-error">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Username -->
+        <label>{{ form.username.label }}</label>
+        {{ form.username }}
+        {% for error in form.username.errors %}
+            <p class="form-error">{{ error }}</p>
+        {% endfor %}
+
+        <!-- Password1 -->
+        <label>{{ form.password1.label }}</label>
+        {{ form.password1 }}
+        {% for error in form.password1.errors %}
+            <p class="form-error">{{ error }}</p>
+        {% endfor %}
+
+        <!-- Password2 -->
+        <label>{{ form.password2.label }}</label>
+        {{ form.password2 }}
+        {% for error in form.password2.errors %}
+            <p class="form-error">{{ error }}</p>
+        {% endfor %}
+
+        <input style="margin-top:10px;" class="button" type="submit" value="Register">
+    </form>
+
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+
+{% endblock content %}
